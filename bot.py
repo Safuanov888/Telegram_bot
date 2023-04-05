@@ -81,11 +81,13 @@ def _parse_openweather(openweather_responce: str) -> Weather:
 
 
 def _parse_location(openweather_dict: dict) -> str:
-    return openweather_dict['name']
+    translate = translator.translate(openweather_dict['name'], 'Русский')
+    return translate
 
 
 def _parse_param(openweather_dict: dict) -> str:
-    return openweather_dict['weather'][0]['main']
+    translate = translator.translate(openweather_dict['weather'][0]['main'], 'Русский')
+    return translate
 
 
 def _parse_temperature(openweather_dict: dict) -> float:
@@ -97,7 +99,8 @@ def _parse_temperature_feeling(openweather_dict: dict) -> Celsius:
 
 
 def _parse_description(openweather_dict: dict) -> str:
-    return str(openweather_dict['weather'][0]['description']).capitalize()
+    translate = translator.translate(str(openweather_dict['weather'][0]['description']).capitalize(), 'Русский')
+    return translate
 
 
 def _parse_wind_speed(openweather_dict: dict) -> float:
@@ -109,7 +112,8 @@ def _parse_wind_direction(openweather_dict: dict) -> str:
     degrees = round(degrees / 45) * 45
     if degrees == 360:
         degrees = 0
-    return WindDirection(degrees).name
+    translate = translator.translate(WindDirection(degrees).name, 'Русский')
+    return translate
 
 
 def get_coordinates_data(city: str) -> dict:
