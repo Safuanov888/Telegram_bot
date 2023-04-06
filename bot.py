@@ -1,19 +1,21 @@
+import sys
+import time
+
+import json
 from loguru import logger
-from aiogram import Bot, Dispatcher, executor, types
-from aiogram.dispatcher.filters.state import StatesGroup, State
-from aiogram.dispatcher import FSMContext
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram import Bot, Dispatcher, executor, types  # type: ignore
+from aiogram.dispatcher.filters.state import StatesGroup, State  # type: ignore
+from aiogram.dispatcher import FSMContext  # type: ignore
+from aiogram.contrib.fsm_storage.memory import MemoryStorage  # type: ignore
 from dataclasses import dataclass
 from urllib.request import urlopen
 from typing import TypeAlias
 from enum import IntEnum
-from translatepy.translators.google import GoogleTranslate
-import time
+from translatepy.translators.google import GoogleTranslate  # type: ignore
+
 import key
 import Inline
 import messages
-import json
-import sys
 
 TOKEN = "5935561015:AAFTFufDGVRzE1q31Q-KEDmZ1cstk4az3ys"
 translator = GoogleTranslate()
